@@ -1,18 +1,26 @@
 import { Text } from '@rneui/themed'
 import { View } from 'react-native'
 
-export const titleText = (props: { 
-    text: string,
-    h1Style: object
+const titleStyle = {
+    fontFamily: "Avenir",
+    fontWeight: "bold",
+    fontSize: "30",
+    padding: 10,
+    marginHorizontal: 10
+}
+
+const fontStyle = {
+    
+}
+
+export const TitleText = (props: { 
+    text: string
 }) => {
     return (
         <View>
             <Text
                 h1
-                h1Style={props.h1Style}
-                style={{
-
-                }}
+                h1Style={titleStyle}
             >
                 {props.text}
             </Text>
@@ -20,22 +28,14 @@ export const titleText = (props: {
     )
 }
 
-// export default (props: {
-//     text: string,
-//     h2Style = {},
-//     h3Style = {},
-//     h4Style = {}
-// }) => {
-//     return (
-//         <Text
-//           h2Style={props.h2Style}
-//           h3Style={props.h3Style}
-//           h4Style={props.h4Style}
-//           style={{
-            
-//           }}
-//         >
-//           {props.text}
-//         </Text>
-//       );
-// }
+export default (props: {
+    text: string
+}) => {
+    return (
+        <Text
+          style={fontStyle}
+        >
+          {props.text}
+        </Text>
+      );
+}
