@@ -4,7 +4,7 @@ import { View } from 'react-native'
 const titleStyle = {
     fontFamily: "Avenir",
     fontWeight: "bold",
-    fontSize: "30",
+    fontSize: 30,
     padding: 10,
     marginHorizontal: 10
 }

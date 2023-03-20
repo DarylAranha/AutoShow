@@ -1,19 +1,40 @@
 import { useState } from "react";
-import { View } from "react-native"
+import { View, StyleSheet } from "react-native"
 import { SearchBar } from "@rneui/base";
 
-const [searchValue, setSearch] = useState('')
-
 export default (props: {
-    onUpdateSearch: (text: string) => void
+    
 }) => {
+    const [search, setSearch] = useState("");
+
+    const updateSearch = (search: string) => {
+        setSearch(search);
+    };
+
     return (
-        <View>
-            <SearchBar 
+        <View style={styles.view}>
+            <SearchBar
                 placeholder="Search"
-                onChangeText={() => {}}
-                value={searchValue}
+                onChangeText={updateSearch}
+                value={search}
+                containerStyle={{
+                    backgroundColor: "#fff",
+                    borderWidth: 1,
+                    borderColor: "#AAA9A9",
+                    borderRadius: 10,
+                }}
+                inputContainerStyle={{
+                    backgroundColor: "#fff",
+                }}
+                searchIcon={{ size: 25 }}
             />
         </View>
-    )
+    );
 }
+
+
+const styles = StyleSheet.create({
+    view: {
+      margin: 10,
+    },
+});
