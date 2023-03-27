@@ -1,33 +1,30 @@
-import { View, Image } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import { Text, Card, Button, Icon } from '@rneui/themed';
+import CustomCard from './CustomCard';
 
-export default (props: { imageSource?: string, title?: String, subtitle?: String }) => {
+interface CardData {
+    image: string,
+    title: string,
+}
 
-    const image = props.imageSource ? (
-        <Image 
-            style={{
-                width: 50,
-                height: 50,
-            }}
-            resizeMode="cover"
-            source={{
-                uri: props.imageSource,
-            }} />
-    ) : null;
+export default (props: {data: Array<Object>}) => {
 
-    const heading = props.title ? (
-        <Text> {props.title} </Text>
-    ) : null;
-
-    const subTitle = props.subtitle ? (
-        <Text> {props.subtitle} </Text>
-    ) : null;
+    const cardList = props.data.data.map(({date, image, title, start, end}) => {
+        console.log(date)
+        return (
+            <CustomCard 
+                imageSource={image}
+                title={title}
+                subtitle={title}
+                startDate={start}
+                endDate={end}
+            />
+        )
+    })
 
     return (
-        <Card>
-            {image || null}
-            {heading || null}
-            {subTitle || null}
-        </Card>
-    );
+        <ScrollView>
+            {cardList}
+        </ScrollView>
+    )
 }
