@@ -5,7 +5,7 @@ const titleStyle = {
     fontFamily: "Avenir",
     fontWeight: "bold",
     fontSize: 30,
-    padding: 10,
+    // padding: 10,
     marginHorizontal: 10
 }
 

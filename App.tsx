@@ -1,17 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import Events from './src/views/Events';
 
 import { ThemeProvider } from '@rneui/themed'
 import { theme, styles } from './styles'
 
-import Back from './src/components/Back';
+import { EventStackNavigation, AboutUsStackNavigation } from './src/routes/StackNavigation'
+import TabNavigation from './src/routes/TabNavigation';
+
 
 export default function App() {
     return (
         <ThemeProvider theme={theme}>
-            <SafeAreaView>
-                <Events />
+            <SafeAreaView style={{flex: 1}}>
+                <TabNavigation 
+                    navigationElements={{
+                        events: EventStackNavigation,
+                        aboutUs: AboutUsStackNavigation
+                    }}/>
             </SafeAreaView>
         </ThemeProvider>
     );

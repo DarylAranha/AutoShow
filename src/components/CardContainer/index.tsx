@@ -1,4 +1,4 @@
-import { View, ScrollView } from 'react-native'
+import { View, ScrollView, Pressable } from 'react-native'
 import { Text, Card, Button, Icon } from '@rneui/themed';
 import CustomCard from './CustomCard';
 
@@ -7,17 +7,20 @@ interface CardData {
     title: string,
 }
 
-export default (props: {data: Array<Object>}) => {
+export default (props: {data: Array<Object>, onPress: Function}) => {
 
-    const cardList = props.data.data.map(({date, image, title, start, end}) => {
-        console.log(date)
+    const cardList = props.data.data.map(({date, image, title, start, end}, i) => {
         return (
             <CustomCard 
-                imageSource={image}
-                title={title}
-                subtitle={title}
-                startDate={start}
-                endDate={end}
+                key={i}
+                data={{
+                    imageSource: image,
+                    title: title,
+                    subtitle: title,
+                    startDate: start,
+                    endDate: end,
+                }}
+                onPress={(onPressData) => props.onPress(onPressData)}
             />
         )
     })

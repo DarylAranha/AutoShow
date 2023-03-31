@@ -5,12 +5,20 @@ import CardContainer from '../../components/CardContainer';
 
 import { data } from './data';
 
-export default function Events() {
+export default function Events(props: object) {
+
+    // On click specific event
+    function onPressEvent(onPressData: Object) {
+        // implement navigation
+        props.navigation.navigate('Event', onPressData)
+    }
+
     return (
         <View>
-            <TitleText text='Events'/>
             <Search />
-            <CardContainer data={data}/>
+            <CardContainer 
+                data={data}
+                onPress={onPressEvent} />
         </View>
     );
 };

@@ -1,23 +1,29 @@
 import * as React from "react";
 import { Icon } from "@rneui/base";
 import colors from '../../constants/colors'
+import { View, StyleSheet } from "react-native";
 
 
-export default () => {
+export default (props: {navigation, route}) => {
     const onBackButtonPress = () => {
-        // TODO: 
-        // Implement back functionality
-        // Implement it once navigation feature is implemented
-        console.log("Back button pressed")
+        props.navigation.goBack()
     }
 
     return (
-        <Icon
-            color={colors.themeColor}
-            name="arrow-back"
-            size={40}
-            type="MaterialIcons"
-            onPress={onBackButtonPress}
-        />
+        <View style={style.container}>
+            <Icon
+                color={colors.themeColor}
+                name="arrow-back"
+                size={40}
+                type="MaterialIcons"
+                onPress={onBackButtonPress}
+            />
+        </View>
     );
 }
+
+const style = StyleSheet.create({
+    container: {
+        
+    }
+})

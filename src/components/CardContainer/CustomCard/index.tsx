@@ -1,9 +1,17 @@
-import { View, Image } from 'react-native'
+import { View, Image, Pressable } from 'react-native'
 import { Text, Card, Button, Icon } from '@rneui/themed';
 
-export default (props: { imageSource?: string, title?: String, subtitle?: String, startDate?: String, endDate?: String }) => {
+type CardProperty = {
+    imageSource?: string, 
+    title?: String, 
+    subtitle?: String, 
+    startDate?: String, 
+    endDate?: String
+}
 
-    const image = props.imageSource ? (
+export default (props: { data: CardProperty, onPress: Function }) => {
+
+    const image = props.data.imageSource ? (
         <Image 
             style={{
                 width: 50,
@@ -11,31 +19,31 @@ export default (props: { imageSource?: string, title?: String, subtitle?: String
             }}
             resizeMode="cover"
             source={{
-                uri: props.imageSource,
+                uri: props.data.imageSource,
             }} />
     ) : null;
 
-    const heading = props.title ? (
+    const heading = props.data.title ? (
         <Text
             h4
             h4Style={{
                 fontWeight: 500
             }}
             > 
-            {props.title} 
+            {props.data.title} 
         </Text>
     ) : null;
 
-    const subTitle = props.subtitle ? (
-        <Text> {props.subtitle} </Text>
+    const subTitle = props.data.subtitle ? (
+        <Text> {props.data.subtitle} </Text>
     ) : null;
 
-    const start = props.startDate ? (
-        <Text> {props.startDate} </Text>
+    const start = props.data.startDate ? (
+        <Text> {props.data.startDate} </Text>
     ) : null;
 
-    const end = props.endDate ? (
-        <Text> {props.endDate} </Text>
+    const end = props.data.endDate ? (
+        <Text> {props.data.endDate} </Text>
     ) : null;
 
     const timeLine = start && end ? (
@@ -48,11 +56,13 @@ export default (props: { imageSource?: string, title?: String, subtitle?: String
     ) : null
 
     return (
-        <Card>
-            {image || null}
-            {heading || null}
-            {subTitle || null}
-            {timeLine || null}
-        </Card>
+        <Pressable onPress={() => props.onPress(props.data)}>
+            <Card>
+                {image || null}
+                {heading || null}
+                {subTitle || null}
+                {timeLine || null}
+            </Card>
+        </Pressable>
     );
 }
