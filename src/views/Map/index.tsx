@@ -1,10 +1,16 @@
 import React, { useEffect } from 'react';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import { StyleSheet, View, Dimensions } from 'react-native';
 
 import Back from '../../components/Back';
 
+import markers from './markers';
+
 export default function Map ({navigation, route}) {
+    const events = markers.dataPoint.events
+    const vendors = markers.dataPoint.vendors
+
+    console.log(Object.keys(events).map(marker => events[marker]))
 
     return (
         <View style={styles.container}>
@@ -17,12 +23,41 @@ export default function Map ({navigation, route}) {
 
             <MapView 
                 initialRegion={{
-                    latitude: 44.411583,
-                    longitude: -79.671410,
-                    latitudeDelta: 0.0022,
-                    longitudeDelta: 0.0021,
+                    latitude: 44.412284,
+                    longitude: -79.669114,
+                    latitudeDelta: 0.0052,
+                    longitudeDelta: 0.0051,
                 }}
-                style={styles.map} />
+                showsUserLocation={true}
+                userInterfaceStyle='light'
+                showsMyLocationButton={true}
+                style={styles.map} >
+
+                {Object.keys(events).map((key, index) => {
+                    let marker = events[key]
+
+                    return (
+                        <Marker
+                            key={index}
+                            coordinate={{latitude: marker.lat, longitude: marker.long}}
+                            title={marker.name}
+                        />
+                    )
+                })}
+
+                {Object.keys(vendors).map((key, index) => {
+                    let marker = vendors[key]
+
+                    return (
+                        <Marker
+                            key={index}
+                            coordinate={{latitude: marker.lat, longitude: marker.long}}
+                            title={marker.name}
+                        />
+                    )
+                })}
+
+            </MapView>
         </View>
     )
 }

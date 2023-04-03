@@ -1,5 +1,6 @@
-import { View, Image, Pressable } from 'react-native'
+import { View, Pressable, ActivityIndicator } from 'react-native'
 import { Text, Card, Button, Icon } from '@rneui/themed';
+import { Image } from '@rneui/themed';
 
 type CardProperty = {
     imageSource?: string, 
@@ -12,22 +13,25 @@ type CardProperty = {
 export default (props: { data: CardProperty, onPress: Function }) => {
 
     const image = props.data.imageSource ? (
-        <Image 
-            style={{
-                width: 50,
-                height: 50,
-            }}
-            resizeMode="cover"
-            source={{
-                uri: props.data.imageSource,
-            }} />
+        <Image
+            source={{ uri: props.data.imageSource }}
+            containerStyle={{
+                aspectRatio: 1,
+                width: '100%',
+                // height: 167,
+                flex: 1,
+              }}
+            PlaceholderContent={<ActivityIndicator />} />
     ) : null;
 
     const heading = props.data.title ? (
         <Text
-            h4
-            h4Style={{
-                fontWeight: 500
+            style={{
+                fontWeight: 400,
+                paddingTop: 10,
+                paddingLeft: 10,
+                paddingBottom: 5,
+                fontSize: 15
             }}
             > 
             {props.data.title} 
@@ -35,7 +39,14 @@ export default (props: { data: CardProperty, onPress: Function }) => {
     ) : null;
 
     const subTitle = props.data.subtitle ? (
-        <Text> {props.data.subtitle} </Text>
+        <Text
+            style={{
+                fontWeight: 600,
+                paddingLeft: 6,
+                paddingBottom: 5,
+                fontSize: 20
+            }}
+        > {props.data.subtitle} </Text>
     ) : null;
 
     const start = props.data.startDate ? (
@@ -49,7 +60,10 @@ export default (props: { data: CardProperty, onPress: Function }) => {
     const timeLine = start && end ? (
         <Text
             style={{
-                fontWeight: 600
+                fontWeight: 400,
+                paddingLeft: 6,
+                paddingBottom: 5,
+                fontSize: 15
             }}
             >{start} - {end}
         </Text>
@@ -57,7 +71,11 @@ export default (props: { data: CardProperty, onPress: Function }) => {
 
     return (
         <Pressable onPress={() => props.onPress(props.data)}>
-            <Card>
+            <Card
+                containerStyle={{
+                    padding: 0,
+                }}
+            >
                 {image || null}
                 {heading || null}
                 {subTitle || null}
