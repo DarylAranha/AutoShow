@@ -6,6 +6,18 @@ The Georgian College Autoshow app is the ultimate guide for auto enthusiasts, pr
 
 ## How to run
 
+Open your favourite terminal 
+
+```sh
+$ cd <project-directory>
+$ expo start
+```
+
+Then press 
+- i to run the project in IOS
+- a to run the project in Android
+
+
 ## Project Strucutre
 
 - App.js: Main component that starts your whole app.
