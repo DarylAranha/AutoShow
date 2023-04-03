@@ -2,8 +2,6 @@
 
 The Georgian College Autoshow app is the ultimate guide for auto enthusiasts, providing a complete list of upcoming auto shows and exhibitions in the college. With this app, you can participate in online games and surveys related to the automotive industry, and stay up-to-date with the latest events. You'll receive notifications about any new events added to the app, so you never miss out on an opportunity to experience the excitement of the auto world. Whether you're a car enthusiast, industry professional, or simply looking for a fun and informative day out, the Autoshow app has everything you need to stay connected and engaged.
 
-## Setup and Installation
-
 ## How to run
 
 Open your favourite terminal 
@@ -14,8 +12,8 @@ $ expo start
 ```
 
 Then press 
-- i to run the project in IOS
-- a to run the project in Android
+- i (To run the project in IOS)
+- a (To run the project in Android)
 
 
 ## Project Strucutre
