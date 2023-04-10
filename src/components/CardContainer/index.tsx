@@ -9,7 +9,10 @@ interface CardData {
 
 export default (props: {data: Array<Object>, onPress: Function}) => {
 
-    const cardList = props.data.data.map(({date, image, title, start, end}, i) => {
+    // const data = Object.keys(props.data).length > 0 ? props.data.data
+
+    const cardList = props.data.map(({date, image, title, start, end}, i) => {
+
         return (
             <CustomCard 
                 key={i}

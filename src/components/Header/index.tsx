@@ -6,9 +6,9 @@ import { Header, Icon } from "@rneui/base";
 
 import Back from '../Back';
 
-export default ({ navigation, route, options, back }) => {
+export default ({ navigation, route, options, back, showBack }) => {
     const title = getHeaderTitle(options, route.name);
-    
+    // debugger
     return (
       <Header
         backgroundColor="#fff"
@@ -17,7 +17,7 @@ export default ({ navigation, route, options, back }) => {
         centerComponent={ <TitleText text={title} />}
         centerContainerStyle={{}}
         containerStyle={{ width: Dimensions.get('window').width, }}
-        leftComponent={<Back navigation={navigation} route={route}/>}
+        leftComponent={!showBack ? <Back navigation={navigation} route={route}/> : null}
         leftContainerStyle={{}}
         linearGradientProps={{}}
         placement="left"

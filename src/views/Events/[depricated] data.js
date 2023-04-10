@@ -1,106 +1,79 @@
 export const data = {
   "data": [
     {
-      "id": '1',
-      "title": "Opening Ceremony",
-      "date": "2023-06-02",
-      "start": "11:00 AM",
-      "end": "06:00 PM",
+      "title": "Meeting with clients",
+      "date": "2023-03-21",
+      "start": "14:30 AM",
+      "end": "16:00 PM",
       "image": "https://source.unsplash.com/random?cars&sig=1"
     },
     {
-      "id": '2',
-      "title": "Plug N Drive test drives begin",
-      "date": "2023-06-02",
-      "start": "12:00 PM",
-      "end": "06:00 PM",
+      "title": "Team standup",
+      "date": "2023-03-22",
+      "start": "10:00 AM",
+      "end": "10:30 PM",
       "image": "https://source.unsplash.com/random?cars&sig=2"
     },
     {
-      "id": '3',
-      "title": "Plug N Drive test drives begin",
-      "date": "2023-06-03",
-      "start": "10:00 AM",
-      "end": "06:00 PM",
-      "image": "https://source.unsplash.com/random?cars&sig=2"
+      "title": "Lunch with coworkers",
+      "date": "2023-03-23",
+      "start": "12:30 AM",
+      "end": "13:30 PM",
+      "image": "https://source.unsplash.com/random?cars&sig=13"
     },
     {
-      "id": '4',
-      "title": "Pfaff Track and Simulators open",
-      "date": "2023-06-03",
-      "start": "11:00 AM",
-      "end": "03:00 PM",
+      "title": "Presentation prep",
+      "date": "2023-03-24",
+      "start": "16:00 AM",
+      "end": "17:00 PM",
       "image": "https://source.unsplash.com/random?cars&sig=14"
     },
     {
-      "id": '5',
-      "title": "Red Barn Dog Show",
-      "date": "2023-06-03",
-      "start": "11:00 AM",
-      "end": "12:00 PM",
-      "image": "https://source.unsplash.com/random?cars&sig=14"
+      "title": "Client call",
+      "date": "2023-03-25",
+      "start": "11:30 AM",
+      "end": "12:30 PM",
+      "image": "https://source.unsplash.com/random?cars&sig=15"
     },
     {
-      "id": '6',
-      "title": "Show N Shine Trophy Ceremony",
-      "date": "2023-06-03",
-      "start": "03:30 PM",
-      "end": "06:00 PM",
+      "title": "Project review",
+      "date": "2023-03-26",
+      "start": "15:00 AM",
+      "end": "16:30 PM",
       "image": "https://source.unsplash.com/random?cars&sig=16"
     },
     {
-      "id": '7',
-      "title": "Red Barn Dog Show",
-      "date": "2023-06-03",
-      "start": "04:00 PM",
-      "end": "06:00 PM",
-      "image": "https://source.unsplash.com/random?cars&sig=16"
+      "title": "Coffee break",
+      "date": "2023-03-27",
+      "start": "10:15 AM",
+      "end": "10:45 PM",
+      "image": "https://source.unsplash.com/random?cars&sig=17"
     },
     {
-      "id": '8',
-      "title": "Plug N Drive test drives begin",
-      "date": "2023-06-04",
-      "start": "10:00 AM",
-      "end": "06:00 PM",
+      "title": "Design review",
+      "date": "2023-03-28",
+      "start": "14:00 AM",
+      "end": "15:00 PM",
       "image": "https://source.unsplash.com/random?cars&sig=18"
     },
     {
-      "id": '9',
-      "title": "Pfaff Track and Simulators open",
-      "date": "2023-03-04",
-      "start": "11:00 AM",
-      "end": "03:00 PM",
+      "title": "Team building event",
+      "date": "2023-03-29",
+      "start": "17:00 AM",
+      "end": "19:00 PM",
       "image": "https://source.unsplash.com/random?cars&sig=19"
     },
     {
-      "id": '10',
-      "title": "Red Barn Dog Show",
-      "date": "2023-06-04",
-      "start": "11:00 AM",
-      "end": "06:00 PM",
-      "image": "https://source.unsplash.com/random?cars&sig=10"
-    },
-    {
-      "id": '11',
-      "title": "KidZone",
-      "date": "2023-06-04",
-      "start": "10:00 AM",
-      "end": "05:00 PM",
-      "image": "https://source.unsplash.com/random?cars&sig=10"
-    },
-    {
-      "id": '12',
-      "title": "KidZone",
-      "date": "2023-06-03",
-      "start": "10:00 AM",
-      "end": "05:00 PM",
+      "title": "Performance review",
+      "date": "2023-03-30",
+      "start": "09:00 AM",
+      "end": "10:00 PM",
       "image": "https://source.unsplash.com/random?cars&sig=10"
     }
   ]
 }
 
 export const  specificData = {
-  "id": '1',
   "title": "Performance review",
   "subTitle": "Team building events",
   "date": "2023-03-30",
