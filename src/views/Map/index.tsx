@@ -15,9 +15,9 @@ export default function Map ({navigation, route}) {
     return (
         <View style={styles.container}>
             <View style={styles.back}>
-                <Back 
+                {/* <Back 
                     navigation={navigation} 
-                    route={route}/>
+                    route={route}/> */}
             </View>
             
 

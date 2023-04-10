@@ -3,12 +3,13 @@ import { View, StyleSheet } from "react-native"
 import { SearchBar } from "@rneui/base";
 
 export default (props: {
-    
+    updatedSearchData: Function
 }) => {
     const [search, setSearch] = useState("");
 
     const updateSearch = (search: string) => {
         setSearch(search);
+        props.updatedSearchData(search)
     };
 
     return (

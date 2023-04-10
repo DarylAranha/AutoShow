@@ -17,7 +17,25 @@ export default function TabNavigation({navigationElements}) {
             <Tab.Navigator
                 initialRouteName='Events'
                 screenOptions={({route}) => ({
-                    header: Header,
+                    header: ({ navigation, route, options, back }) => (
+                        <Header 
+                            navigation={navigation} 
+                            route={route} 
+                            options={options} 
+                            back={back}
+                            showBack={(() => {
+                                // debugger
+                                // if (route.name === 'Events') {
+                                //     return false
+                                // } else if (route.name === 'Overview') {
+                                //     return false
+                                // } else if (route.name === 'About Us') {
+                                //     return false
+                                // }
+
+                                return true
+                            })()} />
+                    ),
                     tabBarIcon: ({focused, color, size}) => {
                         let iconName;
 
