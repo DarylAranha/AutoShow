@@ -9,12 +9,14 @@ import moment from 'moment';
 import colors from '../../constants/colors';
 
 export default function SpecificEvent({ navigation, route }) {
-
-    // console.log(route.params.id)
-
+    
     const specificData = route.params
 
-    // TODO: Implement send data between view using navigation
+    navigation.setOptions({
+        title: specificData.title,
+    });
+
+    console.log(specificData.title)
 
     const date = moment(specificData.date).format('dddd, MMMM Do')
 

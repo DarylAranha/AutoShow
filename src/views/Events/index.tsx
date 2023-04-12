@@ -22,9 +22,6 @@ export default function Events(props: object) {
     }
     
     function onPressEvent(onPressData) {
-        console.log("here")
-        console.log(onPressData)
-
         // implement navigation
         props.navigation.navigate('Event', onPressData)
     }
