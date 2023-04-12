@@ -8,8 +8,8 @@ export const theme = createTheme({
     darkColors: {
       primary: '#000',
     },
-    mode: 'light',
-    
+    mode: 'light'
+
 });
 
 export const styles = StyleSheet.create({

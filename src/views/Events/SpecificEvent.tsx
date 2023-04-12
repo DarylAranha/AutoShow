@@ -5,10 +5,14 @@ import { TitleText } from '../../components/Text';
 import { Image, Text } from '@rneui/themed';
 import moment from 'moment';
 
-import { specificData } from './data';
+// import { specificData } from './data';
 import colors from '../../constants/colors';
 
-export default function SpecificEvent({ navigation }) {
+export default function SpecificEvent({ navigation, route }) {
+
+    // console.log(route.params.id)
+
+    const specificData = route.params
 
     // TODO: Implement send data between view using navigation
 

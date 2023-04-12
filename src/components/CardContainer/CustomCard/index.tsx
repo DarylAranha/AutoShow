@@ -7,7 +7,8 @@ type CardProperty = {
     title?: String, 
     subtitle?: String, 
     startDate?: String, 
-    endDate?: String
+    endDate?: String,
+    description?: String
 }
 
 export default (props: { data: CardProperty, onPress: Function }) => {

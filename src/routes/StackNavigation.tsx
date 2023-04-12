@@ -15,8 +15,9 @@ export function EventStackNavigation() {
         <EventStack.Navigator 
             initialRouteName='Events'
             screenOptions={{
-                headerShown: false 
+                headerShown: false,
             }}
+            
         >
             <EventStack.Screen name="Events" component={Events} />
             <EventStack.Screen name="Event" component={SpecificEvent} />
@@ -30,7 +31,8 @@ export function AboutUsStackNavigation() {
         <AboutUsStack.Navigator
             initialRouteName='AboutUs'
             screenOptions={{
-                headerShown: false 
+                headerShown: false,
+
             }}
         >
             <AboutUsStack.Screen name="AboutUs" component={AboutUs} />
