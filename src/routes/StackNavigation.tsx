@@ -4,10 +4,13 @@ import Events from '../views/Events';
 import SpecificEvent from '../views/Events/SpecificEvent';
 import Header from '../components/Header';
 import AboutUs from '../views/AboutUs';
+import Login from '../views/Authentication/Login';
+import Signup from '../views/Authentication/Signup';
 
 
 const EventStack = createNativeStackNavigator();
 const AboutUsStack = createNativeStackNavigator();
+const AuthenticationStack = createNativeStackNavigator();
 
 export function EventStackNavigation() {
 
@@ -37,5 +40,22 @@ export function AboutUsStackNavigation() {
         >
             <AboutUsStack.Screen name="AboutUs" component={AboutUs} />
         </AboutUsStack.Navigator>
+    )
+}
+
+
+export function AuthenticationNavigation() {
+    
+    return (
+        <AuthenticationStack.Navigator
+            initialRouteName='Login'
+            screenOptions={{
+                headerShown: false,
+
+            }}
+        >
+            <AuthenticationStack.Screen name="Login" component={Login} />
+            <AuthenticationStack.Screen name="SignUp" component={Signup} />
+        </AuthenticationStack.Navigator>
     )
 }
