@@ -4,12 +4,26 @@ import { Button, Input } from '@rneui/themed';
 import { TitleText } from '../../components/Text';
 import colors from '../../constants/colors'
 
+import { saveInDevice } from '../../utils/storage';
+import strings from '../../constants/strings'
+
 export default function SignUpScreen(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSignUp = () => {
-        // handle sign up logic
+    const handleSignUp = async () => {
+        if (email && password) {
+            await saveInDevice(strings.emailKey + email, email)
+            await saveInDevice(strings.passwordKey + email, password)
+            await saveInDevice(strings.currentSigneUp, email)
+
+            const {onSuccess} = props.route.params
+
+            console.log('signup')
+            console.log(onSuccess)
+
+            onSuccess()
+        }
     };
 
     const handleLoginNavigation = () => {
@@ -44,7 +58,7 @@ export default function SignUpScreen(props) {
             }}
             titleStyle={styles.buttonTitleStyle}
             containerStyle={styles.buttonContainerStyle}
-            onPress={() => console.log('aye')}
+            onPress={() => handleSignUp()}
         />
         <Text style={styles.loginText}>
             Already have an account?

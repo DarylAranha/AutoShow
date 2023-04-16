@@ -44,7 +44,10 @@ export function AboutUsStackNavigation() {
 }
 
 
-export function AuthenticationNavigation() {
+export function AuthenticationNavigation(props) {  
+    
+    console.log('Auth')
+    console.log(props.onSuccess)
     
     return (
         <AuthenticationStack.Navigator
@@ -54,8 +57,8 @@ export function AuthenticationNavigation() {
 
             }}
         >
-            <AuthenticationStack.Screen name="Login" component={Login} />
-            <AuthenticationStack.Screen name="SignUp" component={Signup} />
+            <AuthenticationStack.Screen name="Login" component={Login} initialParams={{ onSuccess: props.onSuccess }}/>
+            <AuthenticationStack.Screen name="SignUp" component={Signup} initialParams={{ onSuccess: props.onSuccess }}/>
         </AuthenticationStack.Navigator>
     )
 }

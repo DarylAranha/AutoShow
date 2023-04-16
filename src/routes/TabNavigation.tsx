@@ -19,7 +19,7 @@ export default function TabNavigation({navigationElements, AuthenticationElement
 
     return (
         <NavigationContainer>
-            {false ? (
+            {isLoggedin ? (
                     <Tab.Navigator
                     initialRouteName='Events'
                     screenOptions={({route}) => ({
@@ -69,7 +69,7 @@ export default function TabNavigation({navigationElements, AuthenticationElement
                     <Tab.Screen name="About Us" component={navigationElements.aboutUs} />
                 </Tab.Navigator>
             ) : (
-                <AuthenticationNavigation />
+                <AuthenticationNavigation onSuccess={() => {updateLoginStatus(true)}} />
             )}
         </NavigationContainer>
     );

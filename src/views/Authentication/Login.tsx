@@ -3,14 +3,27 @@ import { View, Text, StyleSheet } from 'react-native'
 import { Button, Input } from '@rneui/themed';
 import { TitleText } from '../../components/Text';
 
+import { getValueFromDevice } from '../../utils/storage';
+import strings from '../../constants/strings'
 import colors from '../../constants/colors';
 
 export default function Login(props: object) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        // Handle login logic here
+    const handleLogin = async () => {
+        const savedPassword = await getValueFromDevice(strings.emailKey + email)
+
+        if (password === savedPassword) {
+            const {onSuccess} = props.route.params
+
+            console.log('signup')
+            console.log(onSuccess)
+
+            onSuccess()
+        } else {
+
+        }
     };
 
     const handleSignUpNavigation = () => {
@@ -43,7 +56,7 @@ export default function Login(props: object) {
                 }}
                 titleStyle={styles.buttonTitleStyle}
                 containerStyle={styles.buttonContainerStyle}
-                onPress={() => console.log('aye')}
+                onPress={() => handleLogin()}
             />
             <Text style={styles.signUpText}>
                 Don't have an account yet?
