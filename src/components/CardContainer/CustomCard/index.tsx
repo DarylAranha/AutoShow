@@ -1,18 +1,24 @@
 import { View, Pressable, ActivityIndicator } from 'react-native'
 import { Text, Card, Button, Icon } from '@rneui/themed';
 import { Image } from '@rneui/themed';
+import { Image as RNImage } from 'react-native';
 
 type CardProperty = {
     imageSource?: string, 
+    isImageStatic?: boolean,
     title?: String, 
     subtitle?: String, 
     startDate?: String, 
-    endDate?: String
+    endDate?: String,
+    description?: String,
+    data?: Object
 }
 
 export default (props: { data: CardProperty, onPress: Function }) => {
 
-    const image = props.data.imageSource ? (
+    console.log('image ---------')
+    console.log(props.data.imageSource)
+    const dynamicImage = !props.data.isImageStatic && props.data.imageSource ? (
         <Image
             source={{ uri: props.data.imageSource }}
             containerStyle={{
@@ -21,6 +27,17 @@ export default (props: { data: CardProperty, onPress: Function }) => {
                 // height: 167,
                 flex: 1,
               }}
+            PlaceholderContent={<ActivityIndicator />} />
+    ) : null;
+
+    const staticImage = props.data.isImageStatic && props.data.imageSource ? (
+        <RNImage
+            source={props.data.imageSource}
+            resizeMode="contain"
+            style={{
+                width: '100%',
+                height: 350
+            }}
             PlaceholderContent={<ActivityIndicator />} />
     ) : null;
 
@@ -76,7 +93,7 @@ export default (props: { data: CardProperty, onPress: Function }) => {
                     padding: 0,
                 }}
             >
-                {image || null}
+                {props.data.isImageStatic ? staticImage : dynamicImage}
                 {heading || null}
                 {subTitle || null}
                 {timeLine || null}

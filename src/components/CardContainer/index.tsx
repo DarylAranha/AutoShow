@@ -8,29 +8,29 @@ interface CardData {
 }
 
 export default (props: {data: Array<Object>, onPress: Function}) => {
-
-    // const data = Object.keys(props.data).length > 0 ? props.data.data
-
-    const cardList = props.data.map(({date, image, title, start, end}, i) => {
-
+    const cardList = props.data.map((obj, i) => {
         return (
             <CustomCard 
                 key={i}
                 data={{
-                    imageSource: image,
-                    title: title,
-                    subtitle: title,
-                    startDate: start,
-                    endDate: end,
+                    imageSource: obj.image || null,
+                    isImageStatic: obj.isImageStatic || null,
+                    title: obj.title || null,
+                    subtitle: obj.title || null,
+                    startDate: obj.start || null,
+                    endDate: obj.end || null,
+                    internalData: obj.data
                 }}
-                onPress={(onPressData) => props.onPress(onPressData)}
+                onPress={() => props.onPress(obj)}
             />
         )
     })
 
+    const displayList = cardList.length > 0 ? cardList : (<View><Text>No Entry Found</Text></View>)
+
     return (
         <ScrollView>
-            {cardList}
+            {displayList}
         </ScrollView>
     )
 }

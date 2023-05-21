@@ -8,7 +8,6 @@ import markers from './markers';
 
 export default function Map ({navigation, route}) {
     const events = markers.dataPoint.events
-    const vendors = markers.dataPoint.vendors
 
     console.log(Object.keys(events).map(marker => events[marker]))
 
@@ -35,18 +34,6 @@ export default function Map ({navigation, route}) {
 
                 {Object.keys(events).map((key, index) => {
                     let marker = events[key]
-
-                    return (
-                        <Marker
-                            key={index}
-                            coordinate={{latitude: marker.lat, longitude: marker.long}}
-                            title={marker.name}
-                        />
-                    )
-                })}
-
-                {Object.keys(vendors).map((key, index) => {
-                    let marker = vendors[key]
 
                     return (
                         <Marker

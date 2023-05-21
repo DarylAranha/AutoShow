@@ -5,17 +5,23 @@ import { TitleText } from '../../components/Text';
 import { Image, Text } from '@rneui/themed';
 import moment from 'moment';
 
-import { specificData } from './data';
+// import { specificData } from './data';
 import colors from '../../constants/colors';
 
-export default function SpecificEvent({ navigation }) {
+export default function SpecificEvent({ navigation, route }) {
+    
+    const specificData = route.params
 
-    // TODO: Implement send data between view using navigation
+    navigation.setOptions({
+        title: specificData.title,
+    });
+
+    console.log(specificData.title)
 
     const date = moment(specificData.date).format('dddd, MMMM Do')
 
     return (
-        <ScrollView>
+        <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
             <View style={styles.container}>
                 <Image
                     source={{ uri: specificData.image }}
@@ -67,7 +73,6 @@ export default function SpecificEvent({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: colors.backgroundColor
     },
     date: {
