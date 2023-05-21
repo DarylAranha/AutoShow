@@ -4,6 +4,8 @@ import Events from '../views/Events';
 import SpecificEvent from '../views/Events/SpecificEvent';
 import Header from '../components/Header';
 import AboutUs from '../views/AboutUs';
+import SpecificAboutUs  from '../views/AboutUs/SpecificAboutUs';
+import DetailedAboutUs from '../views/AboutUs/DetailedAboutUs';
 
 
 const EventStack = createNativeStackNavigator();
@@ -36,6 +38,8 @@ export function AboutUsStackNavigation() {
             }}
         >
             <AboutUsStack.Screen name="AboutUs" component={AboutUs} />
+            <AboutUsStack.Screen name="SpecificAboutUs" component={SpecificAboutUs} />
+            <AboutUsStack.Screen name="DetailedAboutUs" component={DetailedAboutUs} />
         </AboutUsStack.Navigator>
     )
 }

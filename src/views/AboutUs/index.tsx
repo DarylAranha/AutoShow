@@ -10,32 +10,30 @@ import { data } from './data';
 
 export default function AboutUs(props: object) {
 
-    const [eventData, updateEventData] = useState([])
+    const [aboutUsData, updateaboutUsData] = useState([])
     const [searchKeyword, updateSearchKeyword] = useState('')
 
     useEffect(() => {
-        updateEventData(data.data)
+        updateaboutUsData(data.data)
     }, [])
 
     const updatedSearchData = (searchData = '') => {
         updateSearchKeyword(searchData)
     }
     
-    function onPressEvent(onPressData) {
-        // implement navigation
-        
+    function onPressSpecificAboutUs(onPressData) {
+        console.log('onSAboutUs')
+        console.log(onPressData)
+        props.navigation.navigate('SpecificAboutUs', onPressData)
     }
 
-    // sort the data by date and time
-    data.data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-
-    const eventDataList = Object.values(eventData).filter((obj) => obj.title.includes(searchKeyword))
+    const aboutUsDataList = Object.values(aboutUsData).filter((obj) => obj.title.includes(searchKeyword))
     return (
-        <View style={styles.container}>
+        <View style={styles.container}> 
             <Search updatedSearchData={updatedSearchData}/>
             <CardContainer 
-                data={eventDataList}
-                onPress={onPressEvent} />
+                data={aboutUsDataList}
+                onPress={onPressSpecificAboutUs} />
         </View>
     );
 };

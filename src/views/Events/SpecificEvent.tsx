@@ -21,7 +21,7 @@ export default function SpecificEvent({ navigation, route }) {
     const date = moment(specificData.date).format('dddd, MMMM Do')
 
     return (
-        <ScrollView>
+        <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
             <View style={styles.container}>
                 <Image
                     source={{ uri: specificData.image }}
@@ -73,7 +73,6 @@ export default function SpecificEvent({ navigation, route }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: colors.backgroundColor
     },
     date: {

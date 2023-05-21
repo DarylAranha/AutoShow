@@ -13,11 +13,13 @@ export default (props: {data: Array<Object>, onPress: Function}) => {
             <CustomCard 
                 key={i}
                 data={{
-                    imageSource: obj.image,
-                    title: obj.title,
-                    subtitle: obj.title,
-                    startDate: obj.start,
-                    endDate: obj.end,
+                    imageSource: obj.image || null,
+                    isImageStatic: obj.isImageStatic || null,
+                    title: obj.title || null,
+                    subtitle: obj.title || null,
+                    startDate: obj.start || null,
+                    endDate: obj.end || null,
+                    internalData: obj.data
                 }}
                 onPress={() => props.onPress(obj)}
             />
