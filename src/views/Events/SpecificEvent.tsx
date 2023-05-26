@@ -24,7 +24,7 @@ export default function SpecificEvent({ navigation, route }) {
         <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
             <View style={styles.container}>
                 <Image
-                    source={{ uri: specificData.image }}
+                    source={specificData.image}
                     containerStyle={{
                         // aspectRatio: 1,
                         width: '100%',
