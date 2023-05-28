@@ -90,7 +90,7 @@ export default (props: { data: CardProperty, onPress: Function }) => {
         <Pressable onPress={() => props.onPress(props.data)}>
             <Card
                 containerStyle={{
-                    padding: 0,
+                    padding: 4,
                 }}
             >
                 {props.data.isImageStatic ? staticImage : dynamicImage}

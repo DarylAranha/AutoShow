@@ -5,6 +5,7 @@ import { TitleText } from '../../components/Text';
 import CardContainer from '../../components/CardContainer';
 
 import colors from '../../constants/colors';
+import { handleLinkPress } from '../../helper'
 
 export default function SpecificAboutUs({ navigation, route }) {
     
@@ -20,11 +21,13 @@ export default function SpecificAboutUs({ navigation, route }) {
         title: specificData.title,
     });
 
-    console.log(specificData.title)
-
     function onPressAboutUs(onPressData) {
         // implement navigation
-        navigation.navigate('DetailedAboutUs', onPressData)
+        if (onPressData.imageClicableLink) {
+            handleLinkPress(onPressData.imageClicableLink)
+        } else {
+            navigation.navigate('DetailedAboutUs', onPressData)
+        }
     }
 
     return (

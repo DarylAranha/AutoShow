@@ -5,6 +5,7 @@ import { TitleText } from '../../components/Text';
 import CardContainer from '../../components/CardContainer';
 
 import colors from '../../constants/colors';
+import { handleLinkPress } from '../../helper'
 
 import { data } from './data';
 
@@ -17,9 +18,11 @@ export default function AboutUs(props: object) {
     }, [])
 
     function onPressSpecificAboutUs(onPressData) {
-        console.log('onSAboutUs')
-        console.log(onPressData)
-        props.navigation.navigate('SpecificAboutUs', onPressData)
+        if (onPressData.clicableLink) {
+            handleLinkPress(onPressData.clicableLink)
+        } else {
+            props.navigation.navigate('SpecificAboutUs', onPressData)
+        }
     }
 
     return (
@@ -33,6 +36,7 @@ export default function AboutUs(props: object) {
 
 const styles = StyleSheet.create({
     container: {
+        flex:1,
         backgroundColor: colors.backgroundColor
     }
 })
