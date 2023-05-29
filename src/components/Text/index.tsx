@@ -6,7 +6,8 @@ const titleStyle = {
     fontWeight: "bold",
     fontSize: 30,
     // padding: 10,
-    marginHorizontal: 10
+    marginHorizontal: 10,
+    textAlign: 'center'
 }
 
 const fontStyle = {
@@ -14,13 +15,14 @@ const fontStyle = {
 }
 
 export const TitleText = (props: { 
-    text: string
+    text: string,
+    customStyle: {}
 }) => {
     return (
         <View>
             <Text
                 h1
-                h1Style={titleStyle}
+                h1Style={{...titleStyle, ...props.customStyle}}
             >
                 {props.text}
             </Text>

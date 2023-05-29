@@ -13,7 +13,7 @@ export default ({ initalHomeTabs, navigation, route, options, back, showBack, ti
         backgroundColor="#fff"
         backgroundImageStyle={{}}
         barStyle="default"
-        centerComponent={ <TitleText text={title} />}
+        centerComponent={ <TitleText text={title} customStyle={{fontSize: 25,}} />}
         centerContainerStyle={{}}
         containerStyle={{ width: Dimensions.get('window').width, }}
         leftComponent={showBack ? <Back navigation={navigation} route={route} updateBackButtonStatus={updateBackButtonStatus}/> : null}
