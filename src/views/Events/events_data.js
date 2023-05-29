@@ -84,7 +84,7 @@ export const data = {
     },
     {
       "id": 12,
-      "title": "Smart Adventures Mini Bike Rides",
+      "title": "Yamaha Mini Bikes",
       "date": "2023-06-03",
       "start": "10:00am",
       "end": "6:00pm",
@@ -177,7 +177,7 @@ export const data = {
   "three": [
     {
       "id": 23,
-      "title": "Smart Adventures Mini Bike Rides",
+      "title": "Yamaha Mini Bikes",
       "date": "2023-06-04",
       "start": "10:00am",
       "end": "5:00pm",
@@ -207,7 +207,7 @@ export const data = {
     },
     {
       "id": 26,
-      "title": "Red Barn Dog Show",
+      "title": "Red Barn Event Centre Canine Performance",
       "date": "2023-06-04",
       "start": "11:00am",
       "end": "11:30am",
@@ -227,7 +227,7 @@ export const data = {
     },
     {
       "id": 28,
-      "title": "Red Barn Dog Show",
+      "title": "Red Barn Event Centre Canine Performance",
       "date": "2023-06-04",
       "start": "1:30pm",
       "end": "2:00pm",
