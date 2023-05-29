@@ -4,8 +4,10 @@ import colors from '../../constants/colors'
 import { View, StyleSheet } from "react-native";
 
 
-export default (props: {navigation, route}) => {
+export default (props: {navigation, route, updateBackButtonStatus}) => {
+
     const onBackButtonPress = () => {
+        props.updateBackButtonStatus(false)
         props.navigation.goBack()
     }
 

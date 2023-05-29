@@ -109,7 +109,7 @@ export const data = {
       "start": "11:00am",
       "end": "11:30am",
       "isImageStatic": true,
-      "image": "https://source.unsplash.com/random?cars&sig=14",
+      "image": SHOWNSHINE,
       "description": ""
     },
     {
@@ -272,7 +272,7 @@ export const data = {
       "start": "4:00pm",
       "end": "4:30pm",
       "isImageStatic": true,
-      "image": "https://source.unsplash.com/random?cars&sig=32",
+      "image": SHOWNSHINE,
       "description": ""
     },
   ]

@@ -9,26 +9,29 @@ import { handleLinkPress } from '../../helper'
 
 import { data } from './data';
 
-export default function AboutUs(props: object) {
+export default function AboutUs({ navigation, route }) {
 
-    const [aboutUsData, updateaboutUsData] = useState([])
-
-    useEffect(() => {
-        updateaboutUsData(data.data)
-    }, [])
+    React.useEffect(() => {
+        const focused = navigation.addListener('focus', () => {
+            route.params.updateTitle && route.params.updateTitle('About Us', '')
+        });
+    
+        // Return the function to unsubscribe from the event so it gets removed on unmount
+        return focused;
+    }, [navigation]);
 
     function onPressSpecificAboutUs(onPressData) {
         if (onPressData.clicableLink) {
             handleLinkPress(onPressData.clicableLink)
         } else {
-            props.navigation.navigate('SpecificAboutUs', onPressData)
+            navigation.navigate('SpecificAboutUs', onPressData)
         }
     }
 
     return (
         <View style={styles.container}> 
             <CardContainer 
-                data={aboutUsData}
+                data={data.data}
                 onPress={onPressSpecificAboutUs} />
         </View>
     );

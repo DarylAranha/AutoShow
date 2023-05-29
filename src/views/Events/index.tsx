@@ -5,21 +5,27 @@ import { TitleText } from '../../components/Text';
 import CardContainer from '../../components/CardContainer';
 import { Tab, TabView } from '@rneui/themed';
 
+import { useIsFocused } from '@react-navigation/native';
+
 import colors from '../../constants/colors';
 
 import { data } from './events_data';
 
-export default function Events(props: object) {
-    const [searchKeyword, updateSearchKeyword] = useState('')
+export default function Events({ navigation, route }) {
     const [index, setIndex] = React.useState(0);
 
-    const updatedSearchData = (searchData = '') => {
-        updateSearchKeyword(searchData)
-    }
+    React.useEffect(() => {
+        const focused = navigation.addListener('focus', () => {
+            route.params.updateTitle && route.params.updateTitle('Events', '')
+        });
     
+        // Return the function to unsubscribe from the event so it gets removed on unmount
+        return focused;
+    }, [navigation]);
+
     function onPressEvent(onPressData) {
         // implement navigation
-        props.navigation.navigate('Event', onPressData)
+        navigation.navigate('SpecificEvent', onPressData)
     }
 
     // sort the data by date and time

@@ -14,12 +14,9 @@ export default function SpecificAboutUs({ navigation, route }) {
     const specificData = route.params
 
     useEffect(() => {
+        route.params.updateTitle && route.params.updateTitle(specificData.title, 'About Us')
         updateAboutUsData(specificData.data)
     }, [])
-
-    navigation.setOptions({
-        title: specificData.title,
-    });
 
     function onPressAboutUs(onPressData) {
         // implement navigation

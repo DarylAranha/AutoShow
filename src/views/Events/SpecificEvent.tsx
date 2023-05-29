@@ -12,11 +12,11 @@ export default function SpecificEvent({ navigation, route }) {
     
     const specificData = route.params
 
-    navigation.setOptions({
-        title: specificData.title,
-    });
+    useEffect(() => {
+        route.params.updateTitle && route.params.updateTitle(specificData.title, 'Events')
+    }, []);
 
-    console.log(specificData.title)
+    
 
     const date = moment(specificData.date).format('dddd, MMMM Do')
 

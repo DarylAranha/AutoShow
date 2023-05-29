@@ -11,35 +11,37 @@ import DetailedAboutUs from '../views/AboutUs/DetailedAboutUs';
 const EventStack = createNativeStackNavigator();
 const AboutUsStack = createNativeStackNavigator();
 
-export function EventStackNavigation() {
+export function EventStackNavigation({navigation, route}) {
+
+    console.log('<<<<<<<<' + route.params)
+    console.log('<<<<<<<<' + route.name)
+    console.log('<<<<<<<<>>>>>>>>>>>>>>>>')
 
     return (
         <EventStack.Navigator 
-            initialRouteName='Events'
+            initialRouteName='Event'
             screenOptions={{
                 headerShown: false,
             }}
-            
         >
-            <EventStack.Screen name="Events" component={Events} />
-            <EventStack.Screen name="Event" component={SpecificEvent} />
+            <EventStack.Screen name="Event" initialParams={{...route.params}} component={Events} />
+            <EventStack.Screen name="SpecificEvent" initialParams={{...route.params}} component={SpecificEvent} />
         </EventStack.Navigator>
     );
 }
 
-export function AboutUsStackNavigation() {
+export function AboutUsStackNavigation({navigation, route}) {
     
     return (
         <AboutUsStack.Navigator
             initialRouteName='AboutUs'
             screenOptions={{
                 headerShown: false,
-
             }}
         >
-            <AboutUsStack.Screen name="AboutUs" component={AboutUs} />
-            <AboutUsStack.Screen name="SpecificAboutUs" component={SpecificAboutUs} />
-            <AboutUsStack.Screen name="DetailedAboutUs" component={DetailedAboutUs} />
+            <AboutUsStack.Screen name="AboutUs"  initialParams={{...route.params}} component={AboutUs} />
+            <AboutUsStack.Screen name="SpecificAboutUs"  initialParams={{...route.params}} component={SpecificAboutUs} />
+            <AboutUsStack.Screen name="DetailedAboutUs"  initialParams={{...route.params}} component={DetailedAboutUs} />
         </AboutUsStack.Navigator>
     )
 }
