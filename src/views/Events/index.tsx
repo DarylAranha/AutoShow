@@ -40,10 +40,10 @@ export default function Events({ navigation, route }) {
                 value={index}
                 onChange={(e) => setIndex(e)}
                 indicatorStyle={{
-                    backgroundColor: 'white',
+                    backgroundColor: colors.secondaryColor,
                     height: 3,
                 }}
-                variant="default">
+                variant="default" >
             <Tab.Item
                 title="Friday"
                 titleStyle={{ fontSize: 18 }}
