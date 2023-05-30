@@ -1,7 +1,7 @@
 import { View, Pressable, ActivityIndicator } from 'react-native'
 import { Text, Card, Button, Icon } from '@rneui/themed';
 import { Image } from '@rneui/themed';
-import { Image as RNImage } from 'react-native';
+import { Image as RNImage, Dimensions } from 'react-native';
 
 type CardProperty = {
     imageSource?: string, 
@@ -86,18 +86,24 @@ export default (props: { data: CardProperty, onPress: Function }) => {
         </Text>
     ) : null
 
+    const screenWidth = Dimensions.get('window').width;
+    const cardWidth = screenWidth * 0.9; // Adjust the width percentage as needed
+
     return (
         <Pressable onPress={() => props.onPress(props.data)}>
-            <Card
-                containerStyle={{
-                    padding: 0,
-                }}
-            >
-                {props.data.isImageStatic ? staticImage : dynamicImage}
-                {heading || null}
-                {subTitle || null}
-                {timeLine || null}
-            </Card>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Card
+                    containerStyle={{
+                        padding: 4,
+                        width: cardWidth
+                    }}
+                >
+                    {props.data.isImageStatic ? staticImage : dynamicImage}
+                    {heading || null}
+                    {subTitle || null}
+                    {timeLine || null}
+                </Card>
+            </View>
         </Pressable>
     );
 }

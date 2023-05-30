@@ -3,45 +3,77 @@ import { View, Text, StyleSheet } from 'react-native'
 import Search from '../../components/Search';
 import { TitleText } from '../../components/Text';
 import CardContainer from '../../components/CardContainer';
+import { Tab, TabView } from '@rneui/themed';
 
 import colors from '../../constants/colors';
+import { data } from './events_data';
 
-import { data } from './data';
+export default function Events({ navigation, route }) {
+    const [index, setIndex] = React.useState(0);
 
-export default function Events(props: object) {
-
-    const [eventData, updateEventData] = useState([])
-    const [searchKeyword, updateSearchKeyword] = useState('')
-
-    useEffect(() => {
-        updateEventData(data.data)
-    }, [])
-
-    const updatedSearchData = (searchData = '') => {
-        updateSearchKeyword(searchData)
-    }
+    React.useEffect(() => {
+        const focused = navigation.addListener('focus', () => {
+            route.params.updateTitle && route.params.updateTitle('Events')
+        });
     
+        // Return the function to unsubscribe from the event so it gets removed on unmount
+        return focused;
+    }, [navigation]);
+
     function onPressEvent(onPressData) {
         // implement navigation
-        props.navigation.navigate('Event', onPressData)
+        route.params.updatePrevTitle && route.params.updatePrevTitle('Events')
+        navigation.navigate('SpecificEvent', {...onPressData, ...route.params})
     }
 
     // sort the data by date and time
-    data.data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+    data.one.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
-    const eventDataList = Object.values(eventData).filter((obj) => obj.title.includes(searchKeyword))
+    const eventViewFriday = <CardContainer data={data.one} onPress={onPressEvent} />
+    const eventViewSaturday = <CardContainer data={data.two} onPress={onPressEvent} />
+    const eventViewSunday = <CardContainer data={data.three} onPress={onPressEvent} />
     return (
         <View style={styles.container}>
-            <Search updatedSearchData={updatedSearchData}/>
-            <CardContainer 
-                data={eventDataList}
-                onPress={onPressEvent} />
+            <Tab
+                value={index}
+                onChange={(e) => setIndex(e)}
+                indicatorStyle={{
+                    backgroundColor: colors.secondaryColor,
+                    height: 3,
+                }}
+                variant="default" >
+            <Tab.Item
+                title="Friday"
+                titleStyle={{ fontSize: 18 }}
+            />
+            <Tab.Item
+                title="Saturday"
+                titleStyle={{ fontSize: 18 }}
+            />
+            <Tab.Item
+                title="Sunday"
+                titleStyle={{ fontSize: 18 }}
+            />
+            </Tab>
+
+            <TabView value={index} onChange={setIndex} animationType="spring">
+                <TabView.Item>
+                    {eventViewFriday}
+                </TabView.Item>
+                <TabView.Item>
+                    {eventViewSaturday}
+                </TabView.Item>
+                <TabView.Item>
+                    {eventViewSunday}
+                </TabView.Item>
+            </TabView>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.backgroundColor
+        backgroundColor: colors.backgroundColor,
+        flex: 1,
     }
 })

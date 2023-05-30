@@ -12,11 +12,12 @@ export default function SpecificEvent({ navigation, route }) {
     
     const specificData = route.params
 
-    navigation.setOptions({
-        title: specificData.title,
-    });
+    useEffect(() => {
+        route.params.updateTitle && route.params.updateTitle(specificData.title, 'Events')
+        route.params.updatePrevTitle && route.params.updatePrevTitle('Events')
+    }, []);
 
-    console.log(specificData.title)
+    
 
     const date = moment(specificData.date).format('dddd, MMMM Do')
 
@@ -24,48 +25,45 @@ export default function SpecificEvent({ navigation, route }) {
         <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
             <View style={styles.container}>
                 <Image
-                    source={{ uri: specificData.image }}
-                    containerStyle={{
-                        // aspectRatio: 1,
+                    source={specificData.image}
+                    style={{
+                        aspectRatio: 1,
                         width: '100%',
-                        height: 350
+                        height: undefined, // Remove the fixed height
+                        flex: 1,
                     }}
+                    resizeMode="contain" // Specify the resize mode to maintain the aspect ratio
                     PlaceholderContent={<ActivityIndicator />} />
                 
-                    <View style={styles.date}>
-                        <Text
-                            style={{
-                                fontWeight: 600,
-                                fontSize: 15
-                            }}
-                        > 
-                            {date} 
-                        </Text>
+                <View style={styles.date}>
+                    <Text
+                        style={{
+                            fontWeight: 600,
+                            fontSize: 20
+                        }}
+                    > 
+                        {date} 
+                    </Text>
 
-                        <Text
-                            style={{
-                                fontWeight: 600,
-                                fontSize: 15
-                            }}
-                        > 
-                            {specificData.start} - {specificData.end} 
-                        </Text>
-                    </View>
+                    <Text
+                        style={{
+                            fontWeight: 600,
+                            fontSize: 18
+                        }}
+                    > 
+                        {specificData.start} - {specificData.end} 
+                    </Text>
+                </View>
 
-                    <View style={styles.descriptionContainer}>
-                        <Text
-                            style={{
-                                
-                            }}
-                        > 
-                            {specificData.description} 
-                        </Text>
-                    </View>
-
-                    <View>
-                        
-                    </View>
-                
+                <View style={styles.descriptionContainer}>
+                    <Text
+                        style={{
+                            fontSize: 15
+                        }}
+                    > 
+                        {specificData.description} 
+                    </Text>
+                </View>
             </View>
         </ScrollView>
     );

@@ -1,50 +1,102 @@
-import React, { useEffect } from 'react';
+import React, { useState, useRef, createRef } from 'react';
 import MapView, { Marker } from 'react-native-maps';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { View, Text, Image, Animated, Dimensions, StyleSheet } from 'react-native';
+import { PanGestureHandler, PinchGestureHandler, State, GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import Back from '../../components/Back';
+import colors from '../../constants/colors';
 
-import markers from './markers';
+import MAP from '../../../assets/images/map.jpeg'
+
 
 export default function Map ({navigation, route}) {
-    const events = markers.dataPoint.events
 
-    console.log(Object.keys(events).map(marker => events[marker]))
+    const [panEnabled, setPanEnabled] = useState(false);
+
+    const scale = useRef(new Animated.Value(1)).current;
+    const translateX = useRef(new Animated.Value(0)).current;
+    const translateY = useRef(new Animated.Value(0)).current;
+
+    const pinchRef = createRef();
+    const panRef = createRef();
+
+    const onPinchEvent = Animated.event(
+        [{
+            nativeEvent: { scale }
+        }],
+        { useNativeDriver: true }
+    );
+
+    const onPanEvent = Animated.event(
+        [{
+            nativeEvent: {
+            translationX: translateX,
+            translationY: translateY
+            }
+        }],
+        { useNativeDriver: true }
+    );
+
+    const handlePinchStateChange = ({ nativeEvent }) => {
+        // enabled pan only after pinch-zoom
+        if (nativeEvent.state === State.ACTIVE) {
+            setPanEnabled(true);
+        }
+
+        // when scale < 1, reset scale back to original (1)
+        const nScale = nativeEvent.scale;
+        if (nativeEvent.state === State.END) {
+            if (nScale < 1) {
+            Animated.spring(scale, {
+                toValue: 1,
+                useNativeDriver: true
+            }).start();
+            Animated.spring(translateX, {
+                toValue: 0,
+                useNativeDriver: true
+            }).start();
+            Animated.spring(translateY, {
+                toValue: 0,
+                useNativeDriver: true
+            }).start();
+
+            setPanEnabled(false);
+            }
+        }
+    };
+
+
 
     return (
         <View style={styles.container}>
-            <View style={styles.back}>
-                {/* <Back 
-                    navigation={navigation} 
-                    route={route}/> */}
-            </View>
-            
-
-            <MapView 
-                initialRegion={{
-                    latitude: 44.412284,
-                    longitude: -79.669114,
-                    latitudeDelta: 0.0052,
-                    longitudeDelta: 0.0051,
-                }}
-                showsUserLocation={true}
-                userInterfaceStyle='light'
-                showsMyLocationButton={true}
-                style={styles.map} >
-
-                {Object.keys(events).map((key, index) => {
-                    let marker = events[key]
-
-                    return (
-                        <Marker
-                            key={index}
-                            coordinate={{latitude: marker.lat, longitude: marker.long}}
-                            title={marker.name}
+            <GestureHandlerRootView>
+                <PanGestureHandler
+                    onGestureEvent={onPanEvent}
+                    ref={panRef}
+                    simultaneousHandlers={[pinchRef]}
+                    enabled={panEnabled}
+                    failOffsetX={[-1000, 1000]}
+                    shouldCancelWhenOutside>
+                    <Animated.View>
+                        <PinchGestureHandler
+                        ref={pinchRef}
+                        onGestureEvent={onPinchEvent}
+                        simultaneousHandlers={[panRef]}
+                        onHandlerStateChange={handlePinchStateChange}
+                        >
+                        <Animated.Image
+                            source={MAP}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                transform: [{ scale }, { translateX }, { translateY }]
+                            }}
+                            resizeMode="contain"
                         />
-                    )
-                })}
 
-            </MapView>
+                        </PinchGestureHandler>
+                    </Animated.View>
+                </PanGestureHandler>
+            </GestureHandlerRootView>
         </View>
     )
 }
@@ -52,15 +104,6 @@ export default function Map ({navigation, route}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: colors.backgroundColor,
     },
-    map: {
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-    },
-    back: {
-        position: 'absolute',
-        top: 30,
-        left: 30,
-        zIndex: 99
-    }
 });

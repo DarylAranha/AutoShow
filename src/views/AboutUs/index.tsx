@@ -1,38 +1,37 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import Search from '../../components/Search';
 import { TitleText } from '../../components/Text';
 import CardContainer from '../../components/CardContainer';
 
 import colors from '../../constants/colors';
+import { handleLinkPress } from '../../helper'
 
 import { data } from './data';
 
-export default function AboutUs(props: object) {
+export default function AboutUs({ navigation, route }) {
 
-    const [aboutUsData, updateaboutUsData] = useState([])
-    const [searchKeyword, updateSearchKeyword] = useState('')
+    React.useEffect(() => {
+        const focused = navigation.addListener('focus', () => {
+            route.params.updateTitle && route.params.updateTitle('About Us', '')
+        });
 
-    useEffect(() => {
-        updateaboutUsData(data.data)
-    }, [])
+        // Return the function to unsubscribe from the event so it gets removed on unmount
+        return focused;
+    }, [navigation]);
 
-    const updatedSearchData = (searchData = '') => {
-        updateSearchKeyword(searchData)
-    }
-    
     function onPressSpecificAboutUs(onPressData) {
-        console.log('onSAboutUs')
-        console.log(onPressData)
-        props.navigation.navigate('SpecificAboutUs', onPressData)
+        if (onPressData.clicableLink) {
+            handleLinkPress(onPressData.clicableLink)
+        } else {
+            route.params.updatePrevTitle && route.params.updatePrevTitle('About Us')
+            navigation.navigate('SpecificAboutUs', {...onPressData, ...route.params})
+        }
     }
 
-    const aboutUsDataList = Object.values(aboutUsData).filter((obj) => obj.title.includes(searchKeyword))
     return (
         <View style={styles.container}> 
-            <Search updatedSearchData={updatedSearchData}/>
             <CardContainer 
-                data={aboutUsDataList}
+                data={data.data}
                 onPress={onPressSpecificAboutUs} />
         </View>
     );
@@ -40,6 +39,7 @@ export default function AboutUs(props: object) {
 
 const styles = StyleSheet.create({
     container: {
+        flex:1,
         backgroundColor: colors.backgroundColor
     }
 })

@@ -1,24 +1,6 @@
 export const data = {
   "data": [
     {
-      "id": 1,
-      "title": "Opening Ceremonies and Flag Raising",
-      "date": "2023-06-02",
-      "start": "11:00am",
-      "end": "12:00pm",
-      "image": "https://source.unsplash.com/random?cars&sig=1",
-      "description": ""
-    },
-    {
-      "id": 2,
-      "title": "Gates Open",
-      "date": "2023-06-02",
-      "start": "12:00pm",
-      "end": "",
-      "image": "https://source.unsplash.com/random?cars&sig=2",
-      "description": ""
-    },
-    {
       "id": 3,
       "title": "Electric Vehicle test drives",
       "date": "2023-06-02",
@@ -70,24 +52,6 @@ export const data = {
       "start": "4:00pm",
       "end": "4:30pm",
       "image": "https://source.unsplash.com/random?cars&sig=8",
-      "description": ""
-    },
-    {
-      "id": 9,
-      "title": "Gates Close",
-      "date": "2023-06-02",
-      "start": "5:00pm",
-      "end": "",
-      "image": "https://source.unsplash.com/random?cars&sig=9",
-      "description": ""
-    },
-    {
-      "id": 10,
-      "title": "Gates Open",
-      "date": "2023-06-03",
-      "start": "10:00am",
-      "end": "",
-      "image": "https://source.unsplash.com/random?cars&sig=10",
       "description": ""
     },
     {
@@ -181,24 +145,6 @@ export const data = {
       "description": ""
     },
     {
-      "id": 21,
-      "title": "Gates Close",
-      "date": "2023-06-03",
-      "start": "6:00pm",
-      "end": "",
-      "image": "https://source.unsplash.com/random?cars&sig=21",
-      "description": ""
-    },
-    {
-      "id": 22,
-      "title": "Gates Open",
-      "date": "2023-06-04",
-      "start": "10:00am",
-      "end": "",
-      "image": "https://source.unsplash.com/random?cars&sig=22",
-      "description": ""
-    },
-    {
       "id": 23,
       "title": "Smart Adventures Mini Bike Rides",
       "date": "2023-06-04",
@@ -288,28 +234,6 @@ export const data = {
       "image": "https://source.unsplash.com/random?cars&sig=32",
       "description": ""
     },
-    {
-      "id": 33,
-      "title": "Gates Close",
-      "date": "2023-06-04",
-      "start": "5:00pm",
-      "end": "",
-      "image": "https://source.unsplash.com/random?cars&sig=33",
-      "description": ""
-    }
   ]
   
 }
-
-// export const  specificData = {
-//   "id": '1',
-//   "title": "Performance review",
-//   "subTitle": "Team building events",
-//   "date": "2023-03-30",
-//   "start": "09:00 AM",
-//   "end": "10:00 PM",
-//   "image": "https://source.unsplash.com/random?cars&sig=10",
-//   "lat": 44.412458, 
-//   "long": -79.667090,
-//   "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-// }

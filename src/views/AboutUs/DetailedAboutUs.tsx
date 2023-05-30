@@ -16,11 +16,9 @@ export default function DetailedAboutUs({ navigation, route }) {
     
     const specificData = route.params
 
-    navigation.setOptions({
-        title: specificData.title,
-    });
-
-    console.log(specificData.title)
+    useEffect(() => {
+        route.params.updateTitle && route.params.updateTitle(specificData.title)
+    }, []);
 
     return (
         <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>

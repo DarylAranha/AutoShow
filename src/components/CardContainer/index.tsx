@@ -15,7 +15,7 @@ export default (props: {data: Array<Object>, onPress: Function}) => {
                 data={{
                     imageSource: obj.image || null,
                     isImageStatic: obj.isImageStatic || null,
-                    title: obj.title || null,
+                    title: obj.subTitle || null,
                     subtitle: obj.title || null,
                     startDate: obj.start || null,
                     endDate: obj.end || null,
