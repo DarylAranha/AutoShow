@@ -16,7 +16,7 @@ export default ({ initalHomeTabs, navigation, route, options, back, showBack, ti
         centerComponent={ <TitleText text={title} customStyle={{fontSize: 25,}} />}
         centerContainerStyle={{}}
         containerStyle={{ width: Dimensions.get('window').width, }}
-        leftComponent={showBack ? <Back navigation={navigation} route={route} updateBackButtonStatus={updateBackButtonStatus}/> : null}
+        leftComponent={showBack ? <Back navigation={navigation} route={route} updateBackButtonStatus={updateBackButtonStatus} previousTitle={previousTitle}/> : null}
         leftContainerStyle={{}}
         linearGradientProps={{}}
         placement="left"

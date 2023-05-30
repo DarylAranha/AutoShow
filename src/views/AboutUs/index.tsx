@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import Search from '../../components/Search';
 import { TitleText } from '../../components/Text';
 import CardContainer from '../../components/CardContainer';
 
@@ -15,7 +14,7 @@ export default function AboutUs({ navigation, route }) {
         const focused = navigation.addListener('focus', () => {
             route.params.updateTitle && route.params.updateTitle('About Us', '')
         });
-    
+
         // Return the function to unsubscribe from the event so it gets removed on unmount
         return focused;
     }, [navigation]);
@@ -24,6 +23,7 @@ export default function AboutUs({ navigation, route }) {
         if (onPressData.clicableLink) {
             handleLinkPress(onPressData.clicableLink)
         } else {
+            route.params.updatePrevTitle && route.params.updatePrevTitle('About Us')
             navigation.navigate('SpecificAboutUs', onPressData)
         }
     }

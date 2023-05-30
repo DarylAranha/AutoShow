@@ -5,10 +5,7 @@ import { TitleText } from '../../components/Text';
 import CardContainer from '../../components/CardContainer';
 import { Tab, TabView } from '@rneui/themed';
 
-import { useIsFocused } from '@react-navigation/native';
-
 import colors from '../../constants/colors';
-
 import { data } from './events_data';
 
 export default function Events({ navigation, route }) {
@@ -16,7 +13,7 @@ export default function Events({ navigation, route }) {
 
     React.useEffect(() => {
         const focused = navigation.addListener('focus', () => {
-            route.params.updateTitle && route.params.updateTitle('Events', '')
+            route.params.updateTitle && route.params.updateTitle('Events')
         });
     
         // Return the function to unsubscribe from the event so it gets removed on unmount
@@ -25,6 +22,7 @@ export default function Events({ navigation, route }) {
 
     function onPressEvent(onPressData) {
         // implement navigation
+        route.params.updatePrevTitle && route.params.updatePrevTitle('Events')
         navigation.navigate('SpecificEvent', onPressData)
     }
 

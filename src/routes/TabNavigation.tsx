@@ -18,17 +18,20 @@ export default function TabNavigation({navigationElements}) {
     const [previousTitle, updatePreviousTitle] = useState('');
     const [showBack, updateBackButtonStatus] = useState(false)
 
-    const changeHeaderTitle = (routeName, prevTitle) => {
-
+    const changeHeaderTitle = (routeName) => {
+        console.log('----sfasdfasdfasdffasfdafa'+ routeName)
         if (mainTabs.includes(routeName) ) {
             updateTitle(routeName)
-            updatePreviousTitle(prevTitle)
+            
             updateBackButtonStatus(false)
         } else {
             updateTitle(routeName)
-            updatePreviousTitle(prevTitle)
             updateBackButtonStatus(true)
         }
+    }
+
+    const updatePrevTitle = (prev) => {
+        updatePreviousTitle(prev)
     }
 
     return (
@@ -44,8 +47,8 @@ export default function TabNavigation({navigationElements}) {
                             options={options} 
                             back={back}
                             title={title}
-                            previousTitle={previousTitle}
                             showBack={showBack}
+                            previousTitle={previousTitle}
                             updateBackButtonStatus={updateBackButtonStatus}
                             changeHeaderTitle={changeHeaderTitle} />
                     ),
@@ -71,9 +74,9 @@ export default function TabNavigation({navigationElements}) {
                     tabBarInactiveTintColor: colors.themeColor,
                 })}
             >
-                <Tab.Screen name="Events" component={navigationElements.events} initialParams={{updateTitle: changeHeaderTitle}} />
+                <Tab.Screen name="Events" component={navigationElements.events} initialParams={{updateTitle: changeHeaderTitle, updatePrevTitle: updatePrevTitle}} />
                 <Tab.Screen options={{headerShown: false}} name="Overview" component={Map} />
-                <Tab.Screen name="About Us" component={navigationElements.aboutUs} initialParams={{updateTitle: changeHeaderTitle}}/>
+                <Tab.Screen name="About Us" component={navigationElements.aboutUs} initialParams={{updateTitle: changeHeaderTitle, updatePrevTitle: updatePrevTitle}}/>
             </Tab.Navigator>
         </NavigationContainer>
     );
