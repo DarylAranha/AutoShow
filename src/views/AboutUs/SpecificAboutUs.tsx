@@ -15,6 +15,7 @@ export default function SpecificAboutUs({ navigation, route }) {
 
     useEffect(() => {
         route.params.updateTitle && route.params.updateTitle(specificData.title, 'About Us')
+        route.params.updatePrevTitle && route.params.updatePrevTitle('About Us')
         updateAboutUsData(specificData.data)
     }, [])
 

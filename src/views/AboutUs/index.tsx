@@ -24,7 +24,7 @@ export default function AboutUs({ navigation, route }) {
             handleLinkPress(onPressData.clicableLink)
         } else {
             route.params.updatePrevTitle && route.params.updatePrevTitle('About Us')
-            navigation.navigate('SpecificAboutUs', onPressData)
+            navigation.navigate('SpecificAboutUs', {...onPressData, ...route.params})
         }
     }
 

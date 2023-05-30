@@ -22,6 +22,7 @@ export function EventStackNavigation({navigation, route}) {
             initialRouteName='Event'
             screenOptions={{
                 headerShown: false,
+                animationTypeForReplace: 'pop'
             }}
         >
             <EventStack.Screen name="Event" initialParams={{...route.params}} component={Events} />
@@ -37,6 +38,7 @@ export function AboutUsStackNavigation({navigation, route}) {
             initialRouteName='AboutUs'
             screenOptions={{
                 headerShown: false,
+                animationTypeForReplace: 'pop'
             }}
         >
             <AboutUsStack.Screen name="AboutUs"  initialParams={{...route.params}} component={AboutUs} />

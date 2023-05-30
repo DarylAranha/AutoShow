@@ -23,7 +23,7 @@ export default function Events({ navigation, route }) {
     function onPressEvent(onPressData) {
         // implement navigation
         route.params.updatePrevTitle && route.params.updatePrevTitle('Events')
-        navigation.navigate('SpecificEvent', onPressData)
+        navigation.navigate('SpecificEvent', {...onPressData, ...route.params})
     }
 
     // sort the data by date and time

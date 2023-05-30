@@ -14,6 +14,7 @@ export default function SpecificEvent({ navigation, route }) {
 
     useEffect(() => {
         route.params.updateTitle && route.params.updateTitle(specificData.title, 'Events')
+        route.params.updatePrevTitle && route.params.updatePrevTitle('Events')
     }, []);
 
     
