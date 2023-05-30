@@ -21,7 +21,7 @@ export const data = {
     },
     {
       "id": 4,
-      "title": "Smart Adventures Mini Bike Rides",
+      "title": "Yamaha Mini Bikes",
       "date": "2023-06-02",
       "start": "12:00pm",
       "end": "5:00pm",
@@ -51,7 +51,7 @@ export const data = {
     },
     {
       "id": 7,
-      "title": "Electric Cars Now change to ‘Main Stage Presentation",
+      "title": "Main Stage Presentation",
       "date": "2023-06-02",
       "start": "3:30pm",
       "end": "4:15pm",
@@ -109,12 +109,12 @@ export const data = {
       "start": "11:00am",
       "end": "11:30am",
       "isImageStatic": true,
-      "image": SHOWNSHINE,
+      "image": DOGSHOW,
       "description": ""
     },
     {
       "id": 15,
-      "title": "Electric Cars Now change to ‘Main Stage Presentation",
+      "title": "Main Stage Presentation",
       "date": "2023-06-03",
       "start": "11:30am",
       "end": "12:15pm",
@@ -129,7 +129,7 @@ export const data = {
       "start": "1:00pm",
       "end": "3:00pm",
       "isImageStatic": true,
-      "image": AUCTION,
+      "image": MAIN,
       "description": "Join us on the main stage for a silent auction full of fun prizes supporting automotive student scholarships. Place your bid on items from a detail kit to tickets to the Indy!"
     },
     {
@@ -217,7 +217,7 @@ export const data = {
     },
     {
       "id": 27,
-      "title": "Electric Cars Now change to ‘Main Stage Presentation",
+      "title": "Main Stage Presentation",
       "date": "2023-06-04",
       "start": "11:30am",
       "end": "12:15pm",
@@ -247,7 +247,7 @@ export const data = {
     },
     {
       "id": 30,
-      "title": "Electric Cars Now change to ‘Main Stage Presentation",
+      "title": "Main Stage Presentation",
       "date": "2023-06-04",
       "start": "2:30pm",
       "end": "3:15pm",
@@ -272,7 +272,7 @@ export const data = {
       "start": "4:00pm",
       "end": "4:30pm",
       "isImageStatic": true,
-      "image": SHOWNSHINE,
+      "image": DOGSHOW,
       "description": ""
     },
   ]

@@ -76,6 +76,6 @@ export default function Events({ navigation, route }) {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.backgroundColor,
-        flex: 1
+        flex: 1,
     }
 })
